@@ -154,16 +154,22 @@ public class HomePageAutomation extends HomePageHelper{
 			//verify Login History web page is displayed
 			validateWebPageByTitle(driver,login_History_page_expected_Title,"Login Settings web page");
 			// did not handle pop up
+			
 			driver.findElement(By.xpath(".//*[@id='RelatedUserLoginHistoryList_body']/div/a")).click();
-			// creating instance of Robot class (A java based utility
 			driver.findElement(By.xpath(".//*[@id='DisplayAndLayout_font']")).click();
 			driver.findElement(By.xpath(".//*[@id='CustomizeTabs_font']")).click();
 			driver.findElement(By.xpath(".//*[@id='p4']")).click();
 			driver.findElement(By.xpath(".//*[@id='p4']/option[9]")).click();
-			driver.findElement(By.xpath(".//*[@id='duel_select_0']/option[34]")).click();
+			//Assign webelement for combo box
+			WebElement availableTabs = driver.findElement(By.id("duel_select_0"));//id is of <select id="duel_select_1" multiple="multiple"
+			selectSingleValueFromListBox(availableTabs,"Reports","selecting Reports from available list");
 			driver.findElement(By.xpath(".//*[@id='duel_select_0_right']/img")).click();
 			
-			 
+			//Assign weblement for combo box
+			WebElement selectedTabs = driver.findElement(By.id("duel_select_1"));
+			//assign select class variable 
+			displayAllOptionsInList(availableTabs,"displaying from Selected list");			
+			//driver.findElement(By.xpath(".//*[@id='duel_select_0_right']/img")).click();
 			 
 			}
 			

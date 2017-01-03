@@ -11,7 +11,7 @@ public class BrowserFactory
 {
 	public static WebDriver driver;
 	public static WebDriver startBrowser (String browserName, String url){
-		System.setProperty("webdriver.gecko.driver", "/Users/ymadanagopal/HomeProject/project/geckodriver");
+		//System.setProperty("webdriver.gecko.driver", "/Users/ymadanagopal/HomeProject/project/geckodriver");
 
 		if(browserName.equalsIgnoreCase("firefox")){
 			driver = new FirefoxDriver();
