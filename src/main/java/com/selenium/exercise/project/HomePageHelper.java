@@ -1,10 +1,13 @@
 package com.selenium.exercise.project;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,7 +21,10 @@ public class HomePageHelper {
 	 * Creation date : Dec 30 2016
 	 * last modified: Dec 30 2016
 	 * */
-	public static void dropdown_AllOptions(WebDriver driver, String idElement, String objName){
+	public static void validateUserProfileDropdownAllOptions(WebDriver driver,String objName){
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='userNav-menuItems']/a[4]")));
+
 		List <WebElement> allSuggestions = driver.findElements(By.id("userNav")); 
 		for (WebElement suggestion : allSuggestions)
         	{
@@ -43,6 +49,7 @@ public class HomePageHelper {
 	 * last modified: Dec 30 2016
 	 * */
 	public static void validateWebPageByTitle(WebDriver driver, String expectedTitle,String objName){
+  	    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		String curTitle = driver.getTitle();
 		Assert.assertEquals( curTitle,expectedTitle,"User profile page is not displayed" + objName);
 		System.out.println(curTitle + " is dispalyed for " + objName);

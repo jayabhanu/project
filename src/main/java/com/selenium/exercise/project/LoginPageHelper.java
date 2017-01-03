@@ -92,7 +92,7 @@ public class LoginPageHelper {
 	 * 
 	 * */	
 	
-	public static void check_object_isDisplayed(WebElement obj, String objName){
+	public static void checkObjectIsDisplayed(WebElement obj, String objName){
 		if(obj.isDisplayed()){
 			System.out.println(objName + " is displayed");
 		}

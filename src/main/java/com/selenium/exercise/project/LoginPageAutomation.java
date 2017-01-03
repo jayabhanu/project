@@ -85,7 +85,7 @@ public class LoginPageAutomation extends LoginPageHelper{
 	
 	//Test Case 3: Check RemeberMe - 3
 
-	public static void Check_RememberMe(){
+	public static void checkAndValidateRememberMe(){
 		System.out.println("*****Check Remember Me Test case is executing*****");
 		
 		// launch firefox browser with url specified
@@ -121,7 +121,7 @@ public class LoginPageAutomation extends LoginPageHelper{
 	
 	//TestCase 4 : Forgot Password- 4 A
 
-	public static void test_Forgot_Password(){
+	public static void testForgotPassword(){
 		System.out.println("***** Test Forgot Password Test case is executing*****");
 		
 		// launch firefox browser with url specified
@@ -133,7 +133,7 @@ public class LoginPageAutomation extends LoginPageHelper{
 		
 		//validate after click on text link, correct page is landed
 		WebElement forgot_your_pwd_page = driver.findElement(By.xpath(".//*[@id='header']"));
-		check_object_isDisplayed(forgot_your_pwd_page, "Saleceforce Forgot page");
+		checkObjectIsDisplayed(forgot_your_pwd_page, "Saleceforce Forgot page");
 		
 		WebElement pass_email_Id_text = driver.findElement(By.xpath(".//*[@id='un']"));
 		assertAndEnterText(pass_email_Id_text, "jayabhanubec@gmail.com", "pass username");
@@ -142,14 +142,14 @@ public class LoginPageAutomation extends LoginPageHelper{
 		clickObj(continu,"continue");
 		
 		WebElement check_your_mail_text = driver.findElement(By.xpath(".//*[@id='header']"));
-		check_object_isDisplayed(check_your_mail_text, "check your email page");
+		checkObjectIsDisplayed(check_your_mail_text, "check your email page");
 		
 		System.out.println("***** Test Forgot Password Test case has completed executing*****");
 		
 		}
 	
 		//Test Case 5 : Forgot Password- 4 B
-	public static void login_With_Wrong_Credi(){
+	public static void loginWithWrongCredentials(){
 	System.out.println("*****Login with wrong credientials Test case is executing*****");
 	
 	// launch firefox browser with url specified
